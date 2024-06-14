@@ -10,7 +10,7 @@ std::vector<std::string> table(std::vector<Game> games) {
   std::vector<int> points;
   std::vector<int> diffs;
 
-  // TODO
+  
   return teams;
 }
 
@@ -20,14 +20,23 @@ std::vector<std::string> table(std::vector<Game> games) {
 /// steht, ansonsten false.
 bool compare_teams(std::string team1, std::string team2, int points1,
                    int points2, int diff1, int diff2) {
-  // TODO
+   if (points1 > points2) {
+    return true;
+  }
+  if (points1 == points2) {
+    return diff1 > diff2;
+  }
   return false;
 }
 
 /// Hilfsfunktion: Erwartet einen Vector mit Strings sowie einen String.
 /// Liefert true, wenn der String im Vector enthalten ist, und false sonst.
 bool contains(std::vector<std::string> vec, std::string str) {
-  // TODO
+  for (int i = 0; i < vec.size();i++){
+    if (vec[i] == str) {
+      return true;
+    }
+  }
   return false;
 }
 
@@ -36,7 +45,10 @@ bool contains(std::vector<std::string> vec, std::string str) {
 /// vorkommen.
 std::vector<std::string> playing_teams(std::vector<Game> games) {
   std::vector<std::string> result;
-  // TODO
+  for (int i = 0; i < games.size();i++){
+    result.push_back(games[i].home);
+    result.push_back(games[i].guest);
+  }
   return result;
 }
 

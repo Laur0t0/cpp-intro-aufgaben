@@ -5,8 +5,17 @@
 /// Liefert zurück, wie oft das Team unentschieden gespielt hat.
 int count_draws(std::vector<Game> games, std::string team) {
   int result = 0;
-  if(home_score == guest_score){
+  
+  for (int i = 0; i < games.size();i++){
     
+    if (games[i].home == team && games[i].guest_score == games[i].home_score){
+      result += 1;
+    }
+
+    if (games[i].guest == team && games[i].home_score == games[i].guest_score){
+      result += 1;
+    }
+  
   }
   return result;
 }

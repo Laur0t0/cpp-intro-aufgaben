@@ -5,7 +5,19 @@
 /// Liefert die Tordifferenz des Teams.
 int goal_diff(std::vector<Game> games, std::string team) {
   int result = 0;
-  // TODO
+  
+  for (int i = 0; i < games.size();i++){
+    
+    if (games[i].home == team){
+      result += games[i].home_score - games[i].guest_score;
+    }
+
+    if (games[i].guest == team){
+      result += games[i].guest_score - games[i].home_score;
+    }
+  
+  }
+
   return result;
 }
 
