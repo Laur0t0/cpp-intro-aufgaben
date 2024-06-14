@@ -10,7 +10,26 @@ std::vector<std::string> table(std::vector<Game> games) {
   std::vector<int> points;
   std::vector<int> diffs;
 
-  
+  for (std::string t : teams) {
+    points.push_back(add_points(games, t));
+    diffs.push_back(goal_diff(games, t));
+  }
+
+  for (int i = 0; i < teams.size(); i++) {
+    for (int j = i; j < teams.size() - 1; j++) {
+      std::string t1 = teams[j];
+      std::string t2 = teams[j + 1];
+      int p1 = points[j];
+      int p2 = points[j + 1];
+      int d1 = diffs[j];
+      int d2 = diffs[j + 1];
+      if (compare_teams(t2, t1, p2, p1, d2, d1)) {
+        std::swap(teams[j], teams[j + 1]);
+        std::swap(points[j], points[j + 1]);
+        std::swap(diffs[j], diffs[j + 1]);
+      }
+    }
+  }
   return teams;
 }
 
@@ -46,8 +65,12 @@ bool contains(std::vector<std::string> vec, std::string str) {
 std::vector<std::string> playing_teams(std::vector<Game> games) {
   std::vector<std::string> result;
   for (int i = 0; i < games.size();i++){
-    result.push_back(games[i].home);
-    result.push_back(games[i].guest);
+    if (!contains(result, games[i].home)) {
+      result.push_back(games[i].home);
+    }
+    if (!contains(result, games[i].guest)) {
+      result.push_back(games[i].guest);
+    }
   }
   return result;
 }
