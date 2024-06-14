@@ -1,3 +1,4 @@
+#include <cstddef>
 #include <vector>
 
 #include "test.h"
@@ -6,7 +7,11 @@
 /// Gibt zurück, wie viele Zahlen im Vektor vorkommen, die kleiner als x sind.
 int count_less(std::vector<int> v, int x) {
   int result = 0;
-  // TODO
+  for (int i = 0; i < v.size(); i++){
+    if(v[i] < x){
+      result++;
+    }
+  }
   return result;
 }
 

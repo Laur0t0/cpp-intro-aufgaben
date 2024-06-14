@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cstdint>
 #include <string>
 #include <vector>
 
@@ -10,7 +11,25 @@
 std::vector<std::string> filter_prefix(std::vector<std::string> v,
                                        std::string s) {
   std::vector<std::string> result;
-  // TODO
+
+  for (int i = 0; i < v.size(); i++){
+    
+    std::string temp = v[i];
+    bool con = true;
+
+    for (int m = 0; m < s.size(); m++){
+      
+      if (temp[m] != s[m]){
+        con = false;
+      }
+
+    }
+
+    if (con){
+        result.push_back(v[i]);
+      }
+
+  }
   return result;
 }
 
