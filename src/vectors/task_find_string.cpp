@@ -4,12 +4,16 @@
 
 /// Erwartet einen Vektor und einen String s.
 /// Liefert die Position von s im Vektor zurück, falls s im Vektor vorkommt.
-/// Liefet die Länge des Vektors zurück, falls s nicht vorkommt.
+/// Liefert die Länge des Vektors zurück, falls s nicht vorkommt.
 /// Bei mehrfachem Vorkommen wird die Position des ersten Vorkommens
 /// zurückgegeben.
 size_t find_string(std::vector<std::string> v, std::string s) {
   int result = 0;
-  
+   for (int i = 0; i < v.size(); i++){
+    if (v[i] == s){
+      return i;
+    }
+   }
   return v.size();
 }
 

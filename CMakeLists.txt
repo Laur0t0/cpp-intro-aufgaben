@@ -4,7 +4,7 @@ project("C++ - Uebungsaufgaben")
 
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_COMPILE_WARNING_AS_ERROR ON)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 enable_testing()
 

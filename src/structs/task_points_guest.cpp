@@ -4,7 +4,15 @@
 /// Liefert die Wertungspunkte für das Gäste-Team.
 /// Sieg: 3 Punkte, Unentschieden: 1 Punkt, Niederlage: 0 Punkte.
 int Game::points_guest() {
-  // TODO
+  if (home_score < guest_score){
+    return 3;
+  }
+  if (guest_score < home_score) {
+    return 0;
+  }
+  if (guest_score == home_score) {
+    return 1;
+  }
   return 0;
 }
 
